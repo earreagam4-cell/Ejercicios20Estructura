@@ -23,31 +23,23 @@ print(calificador.promedio())
 
 # Hecho por mi 
 
-class Calificador2:
+class Notas:
+
     def __init__(self):
         self.notas = []
 
-    def validar_nota(self, nota):
-        if isinstance(nota, (int, float)) and 0 <= nota <= 100:
-            return True
-        return False
-
-    def cargar_notas(self, *args):
-        for nota in args:
-            if self.validar_nota(nota):
-                self.notas.append(nota)
-            else:
-                print(f"Aviso: La nota {nota} fue rechazada por ser inválida.")
-                
-        return self.notas
+    def agregar_nota(self, nota):
+        self.notas.append(nota)
 
     def promedio(self):
-        cantidad_notas = len(self.notas)
-        if cantidad_notas == 0:
-            return 0.0
-            suma_total = sum(self.notas)
-        return suma_total / cantidad_notas
+        return sum(self.notas) / len(self.notas)
 
- Prueba = Calificador2()
-    notas_aceptadas = Prueba.cargar_notas(85, 105, -5, 90, 100, 45, "A")
-    print(calificador2.promedio())   
+
+notas = Notas()
+
+notas.agregar_nota(80)
+notas.agregar_nota(90)
+notas.agregar_nota(70)
+
+print(notas.notas)
+print(notas.promedio())
